@@ -1,0 +1,19 @@
+node_modules/
+dist/
+build/
+.parcel-cache/
+.cache/
+.idea/
+.ide/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+
+# Локальные служебные файлы и заметки не тянем в репозиторий
+CONTEXT*
+AGENTS*
+*.local.*
+.codex/
