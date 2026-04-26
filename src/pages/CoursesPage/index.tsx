@@ -5,27 +5,47 @@ import {StateMessage} from '../../components/StateMessage';
 import {getCourses} from '../../modules/courses/api';
 import {CourseCard} from '../../modules/courses/components/CourseCard';
 import type {CourseListItem} from '../../modules/courses/types';
-import '../page.css';
+import styles from '../page.module.css';
 
 export function CoursesPage() {
   const [courses, setCourses] = useState<CourseListItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
   const [query, setQuery] = useState('');
   const [selectedLevel, setSelectedLevel] = useState('');
 
-  useEffect(() => {
-    async function loadCourses() {
-      setIsLoading(true);
+  async function loadCourses() {
+    setIsLoading(true);
+    setError('');
+
+    try {
       const data = await getCourses();
       setCourses(data);
+    } catch {
+      setCourses([]);
+      setError('Не удалось загрузить список курсов. Попробуй повторить запрос или проверь mock-сценарий в адресной строке.');
+    } finally {
       setIsLoading(false);
     }
+  }
 
-    loadCourses();
+  useEffect(() => {
+    void loadCourses();
   }, []);
 
   if (isLoading) {
     return <Loader label="Загрузка списка курсов..." />;
+  }
+
+  if (error) {
+    return (
+      <StateMessage
+        title="Не удалось загрузить каталог"
+        description={error}
+        actionLabel="Повторить загрузку"
+        onAction={loadCourses}
+      />
+    );
   }
 
   if (!courses.length) {
@@ -50,20 +70,20 @@ export function CoursesPage() {
   });
 
   return (
-    <section className="page">
-      <div className="intro">
-        <h1 className="title">Курсы</h1>
-        <p className="lead">
-          Каталог показывает краткую информацию по каждому курсу, а полное содержание
-          открывается на отдельной странице.
+    <section className={styles.page}>
+      <div className={styles.intro}>
+        <h1 className={styles.title}>Курсы</h1>
+        <p className={styles.lead}>
+          Каталог показывает краткую информацию по каждому курсу, а полное содержание открывается на
+          отдельной странице.
         </p>
       </div>
 
-      <div className="filters">
-        <label className="field">
-          <span className="caption">Поиск по названию и описанию</span>
+      <div className={styles.filters}>
+        <label className={styles.field}>
+          <span className={styles.caption}>Поиск по названию и описанию</span>
           <input
-            className="control"
+            className={styles.control}
             type="search"
             value={query}
             onChange={event => setQuery(event.target.value)}
@@ -71,10 +91,10 @@ export function CoursesPage() {
           />
         </label>
 
-        <label className="field">
-          <span className="caption">Уровень курса</span>
+        <label className={styles.field}>
+          <span className={styles.caption}>Уровень курса</span>
           <select
-            className="control"
+            className={styles.control}
             value={selectedLevel}
             onChange={event => setSelectedLevel(event.target.value)}>
             <option value="">Все уровни</option>
@@ -93,7 +113,7 @@ export function CoursesPage() {
           description="Попробуй изменить поисковый запрос или сбросить фильтр по уровню."
         />
       ) : (
-        <div className="grid">
+        <div className={styles.grid}>
           {filteredCourses.map(course => (
             <CourseCard key={course.id} course={course} />
           ))}

@@ -1,22 +1,28 @@
 import {NavLink} from 'react-router-dom';
-import './navigation.css';
+import styles from './navigation.module.css';
 
 export function Navigation() {
   return (
     <nav aria-label="Основная навигация">
-      <ul className="list">
+      <ul className={styles.list}>
         <li>
-          <NavLink to="/" className={({isActive}) => (isActive ? 'link active' : 'link')}>
+          <NavLink
+            to="/"
+            className={({isActive}) => (isActive ? `${styles.link} ${styles.active}` : styles.link)}>
             Главная
           </NavLink>
         </li>
         <li>
-          <NavLink to="/courses" className={({isActive}) => (isActive ? 'link active' : 'link')}>
+          <NavLink
+            to="/courses"
+            className={({isActive}) => (isActive ? `${styles.link} ${styles.active}` : styles.link)}>
             Курсы
           </NavLink>
         </li>
         <li>
-          <NavLink to="/about" className={({isActive}) => (isActive ? 'link active' : 'link')}>
+          <NavLink
+            to="/about"
+            className={({isActive}) => (isActive ? `${styles.link} ${styles.active}` : styles.link)}>
             О проекте
           </NavLink>
         </li>

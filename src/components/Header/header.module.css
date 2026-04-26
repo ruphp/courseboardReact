@@ -4,7 +4,7 @@
   backdrop-filter: blur(12px);
 }
 
-.headerInner {
+.inner {
   width: min(100% - 32px, var(--page-max-width));
   margin: 0 auto;
   padding: 18px 0;
@@ -17,7 +17,7 @@
 }
 
 @media (min-width: 768px) {
-  .headerInner {
+  .inner {
     width: min(100% - 48px, var(--page-max-width));
     display: flex;
     align-items: center;
