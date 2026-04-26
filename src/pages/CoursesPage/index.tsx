@@ -2,10 +2,10 @@ import {useEffect, useState} from 'react';
 
 import {getCourses} from '../../modules/courses/api';
 import {CourseCard} from '../../modules/courses/components/CourseCard';
-import type {Course} from '../../modules/courses/types';
+import type {CourseListItem} from '../../modules/courses/types';
 
 export function CoursesPage() {
-  const [courses, setCourses] = useState<Course[]>([]);
+  const [courses, setCourses] = useState<CourseListItem[]>([]);
 
   useEffect(() => {
     async function loadCourses() {
@@ -27,4 +27,3 @@ export function CoursesPage() {
     </section>
   );
 }
-
