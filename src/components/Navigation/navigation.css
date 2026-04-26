@@ -1,0 +1,28 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: var(--text-secondary-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.link:hover {
+  background: var(--surface-soft-color);
+  color: var(--text-primary-color);
+}
+
+.active {
+  background: var(--accent-soft-color);
+  color: var(--accent-color);
+}

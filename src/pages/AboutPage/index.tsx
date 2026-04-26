@@ -1,9 +1,15 @@
+import '../page.css';
+
 export function AboutPage() {
   return (
-    <section>
-      <h1>О проекте</h1>
-      <p>Этот проект нужен для поэтапного изучения React, TypeScript и SPA-архитектуры.</p>
+    <section className="page">
+      <div className="intro">
+        <h1 className="title">О проекте</h1>
+        <p className="lead">
+          Проект развивается как компактное SPA-приложение с прицелом на понятную
+          архитектуру, хорошую производительность и дальнейшее подключение реального API.
+        </p>
+      </div>
     </section>
   );
 }
-

@@ -1,13 +1,13 @@
 import {Navigation} from '../Navigation';
+import './header.css';
 
 export function Header() {
   return (
-    <header>
-      <div>
-        <strong>Courseboard React</strong>
+    <header className="header">
+      <div className="inner">
+        <strong className="brand">Courseboard React</strong>
+        <Navigation />
       </div>
-      <Navigation />
     </header>
   );
 }
-

@@ -1,0 +1,31 @@
+.card {
+  height: 100%;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  background: var(--surface-color);
+  box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: 1.125rem;
+}
+
+.link {
+  color: var(--text-primary-color);
+}
+
+.link:hover {
+  color: var(--accent-color);
+}
+
+.summary {
+  margin: 0 0 16px;
+  color: var(--text-secondary-color);
+}
+
+.level {
+  color: var(--accent-color);
+  font-size: 0.95rem;
+}

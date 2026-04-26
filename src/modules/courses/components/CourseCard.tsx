@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 
 import type {CourseListItem} from '../types';
+import './course-card.css';
 
 interface CourseCardProps {
   course: CourseListItem;
@@ -8,12 +9,14 @@ interface CourseCardProps {
 
 export function CourseCard({course}: CourseCardProps) {
   return (
-    <article>
-      <h2>
-        <Link to={`/courses/${course.id}`}>{course.title}</Link>
+    <article className="card">
+      <h2 className="title">
+        <Link className="link" to={`/courses/${course.id}`}>
+          {course.title}
+        </Link>
       </h2>
-      <p>{course.summary}</p>
-      <small>Уровень: {course.level}</small>
+      <p className="summary">{course.summary}</p>
+      <strong className="level">Уровень: {course.level}</strong>
     </article>
   );
 }

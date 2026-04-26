@@ -4,12 +4,11 @@ import {Header} from '../../components/Header';
 
 export function AppLayout() {
   return (
-    <div>
+    <div className="layout">
       <Header />
-      <main>
+      <main className="content">
         <Outlet />
       </main>
     </div>
   );
 }
-
