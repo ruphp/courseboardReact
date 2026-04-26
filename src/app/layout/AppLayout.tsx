@@ -4,9 +4,9 @@ import {Header} from '../../components/Header';
 
 export function AppLayout() {
   return (
-    <div className="layout-shell">
+    <div className="layout">
       <Header />
-      <main className="page-container">
+      <main className="content">
         <Outlet />
       </main>
     </div>

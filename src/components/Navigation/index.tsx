@@ -1,13 +1,14 @@
 import {NavLink} from 'react-router-dom';
+import styles from './navigation.module.css';
 
 function getLinkClass(isActive: boolean) {
-  return isActive ? 'nav-pill nav-pill-active' : 'nav-pill';
+  return isActive ? `${styles.link} ${styles.active}` : styles.link;
 }
 
 export function Navigation() {
   return (
     <nav aria-label="Основная навигация">
-      <ul className="nav-list">
+      <ul className={styles.list}>
         <li>
           <NavLink to="/" className={({isActive}) => getLinkClass(isActive)}>
             Главная
