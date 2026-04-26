@@ -1,15 +1,17 @@
+export type CourseLevel = 'Начальный' | 'Средний' | 'Продвинутый';
+
 export interface CourseListItem {
   id: string;
   title: string;
   summary: string;
-  level: string;
+  level: CourseLevel;
 }
 
 export interface CourseDetails {
   id: string;
   title: string;
   description: string;
-  level: string;
+  level: CourseLevel;
   author: string;
   duration: string;
   content: string;
