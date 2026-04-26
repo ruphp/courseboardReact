@@ -1,177 +1,70 @@
-@import "tailwindcss";
-
-@theme {
-  --font-sans: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --color-brand-50: #ccfbf1;
-  --color-brand-700: #0f766e;
-  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
-  --text-display: clamp(1.875rem, 4vw, 2.75rem);
-  --text-display--line-height: 1.1;
-  --radius-panel: 1.5rem;
-  --container-page: 70rem;
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1f2937;
+  background: #f3f4f6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --page-max-width: 1120px;
+  --surface-color: #ffffff;
+  --surface-soft-color: #f9fafb;
+  --border-color: #d1d5db;
+  --text-primary-color: #111827;
+  --text-secondary-color: #4b5563;
+  --accent-color: #0f766e;
+  --accent-soft-color: #ccfbf1;
+  --shadow-color: rgba(15, 23, 42, 0.08);
 }
 
-@layer base {
-  * {
-    box-sizing: border-box;
-  }
-
-  html,
-  body,
-  #root {
-    min-height: 100%;
-    margin: 0;
-  }
-
-  body {
-    min-width: 320px;
-    background: #f3f4f6;
-    color: #111827;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-  }
-
-  button,
-  input,
-  textarea,
-  select {
-    font: inherit;
-  }
+* {
+  box-sizing: border-box;
 }
 
-@layer components {
-  .layout-shell {
-    @apply min-h-screen;
-  }
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
 
-  .page-container {
-    @apply mx-auto w-full max-w-page px-4 py-6 pb-12 md:px-6 md:py-8 md:pb-16;
-  }
+body {
+  min-width: 320px;
+}
 
-  .header-shell {
-    @apply border-b border-slate-300 bg-white/90 backdrop-blur-xl;
-  }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-  .header-inner {
-    @apply mx-auto w-full max-w-page px-4 py-4 md:flex md:items-center md:justify-between md:gap-6 md:px-6;
-  }
+img {
+  display: block;
+  max-width: 100%;
+}
 
-  .brand-mark {
-    @apply mb-3 block text-lg text-slate-900 md:mb-0 md:text-xl;
-  }
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
 
-  .nav-list {
-    @apply m-0 flex list-none flex-wrap gap-2 p-0;
-  }
+.layout {
+  min-height: 100vh;
+}
 
-  .nav-pill {
-    @apply inline-flex min-h-10 items-center rounded-full px-3.5 text-sm text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900;
-  }
-
-  .nav-pill-active {
-    @apply bg-brand-50 text-brand-700;
-  }
-
-  .page-shell {
-    @apply grid gap-6;
-  }
-
-  .page-intro {
-    @apply grid gap-3;
-  }
-
-  .page-title {
-    @apply m-0 text-display text-slate-900;
-  }
-
-  .page-lead {
-    @apply m-0 max-w-3xl text-base text-slate-600;
-  }
-
-  .panel {
-    @apply rounded-panel border border-slate-300 bg-white;
-  }
-
-  .filter-panel {
-    @apply grid gap-3.5 p-5;
-  }
-
-  .field {
-    @apply grid gap-2;
-  }
-
-  .caption {
-    @apply text-slate-600;
-    font-size: 0.95rem;
-  }
-
-  .control {
-    @apply min-h-11 w-full border border-slate-300 bg-white px-3.5 text-slate-900;
-    border-radius: 14px;
-  }
-
-  .loader-panel {
-    @apply grid w-full justify-items-center gap-3 rounded-panel border border-dashed border-slate-300 bg-slate-50 px-5 py-8 text-center text-slate-600;
-  }
-
-  .loader-spinner {
-    @apply h-7 w-7 animate-spin rounded-full border-3 border-slate-300 border-t-brand-700;
-  }
-
-  .state-panel {
-    @apply rounded-panel border border-slate-300 bg-white px-5 py-6;
-  }
-
-  .state-title {
-    @apply mb-2.5 text-xl text-slate-900;
-  }
-
-  .state-text {
-    @apply m-0 text-slate-600;
-  }
-
-  .action-button {
-    @apply mt-4 cursor-pointer rounded-2xl bg-brand-700 px-4 py-3 text-white transition-opacity hover:opacity-90;
-  }
-
-  .card-grid {
-    @apply grid gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-3;
-  }
-
-  .course-card {
-    @apply h-full rounded-panel border border-slate-300 bg-white p-5 shadow-soft;
-  }
-
-  .course-title {
-    @apply mb-3 text-lg;
-  }
-
-  .course-link {
-    @apply text-slate-900 transition-colors hover:text-brand-700;
-  }
-
-  .course-summary {
-    @apply mb-4 text-slate-600;
-  }
-
-  .course-level {
-    @apply text-sm text-brand-700;
-  }
+.content {
+  width: min(100% - 32px, var(--page-max-width));
+  margin: 0 auto;
+  padding: 24px 0 48px;
 }
 
 @media (min-width: 768px) {
-  @layer components {
-    .filter-panel {
-      grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
-      align-items: end;
-    }
+  .content {
+    width: min(100% - 48px, var(--page-max-width));
+    padding: 32px 0 64px;
   }
 }

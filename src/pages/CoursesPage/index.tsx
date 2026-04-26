@@ -5,6 +5,7 @@ import {StateMessage} from '../../components/StateMessage';
 import {getCourses} from '../../modules/courses/api';
 import {CourseCard} from '../../modules/courses/components/CourseCard';
 import type {CourseListItem} from '../../modules/courses/types';
+import styles from '../page.module.css';
 
 export function CoursesPage() {
   const [courses, setCourses] = useState<CourseListItem[]>([]);
@@ -69,20 +70,20 @@ export function CoursesPage() {
   });
 
   return (
-    <section className="page-shell">
-      <div className="page-intro">
-        <h1 className="page-title">Курсы</h1>
-        <p className="page-lead">
+    <section className={styles.page}>
+      <div className={styles.intro}>
+        <h1 className={styles.title}>Курсы</h1>
+        <p className={styles.lead}>
           Каталог показывает краткую информацию по каждому курсу, а полное содержание открывается на
           отдельной странице.
         </p>
       </div>
 
-      <div className="panel filter-panel">
-        <label className="field">
-          <span className="caption">Поиск по названию и описанию</span>
+      <div className={styles.filters}>
+        <label className={styles.field}>
+          <span className={styles.caption}>Поиск по названию и описанию</span>
           <input
-            className="control"
+            className={styles.control}
             type="search"
             value={query}
             onChange={event => setQuery(event.target.value)}
@@ -90,10 +91,10 @@ export function CoursesPage() {
           />
         </label>
 
-        <label className="field">
-          <span className="caption">Уровень курса</span>
+        <label className={styles.field}>
+          <span className={styles.caption}>Уровень курса</span>
           <select
-            className="control"
+            className={styles.control}
             value={selectedLevel}
             onChange={event => setSelectedLevel(event.target.value)}>
             <option value="">Все уровни</option>
@@ -112,7 +113,7 @@ export function CoursesPage() {
           description="Попробуй изменить поисковый запрос или сбросить фильтр по уровню."
         />
       ) : (
-        <div className="card-grid">
+        <div className={styles.grid}>
           {filteredCourses.map(course => (
             <CourseCard key={course.id} course={course} />
           ))}

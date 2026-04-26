@@ -1,10 +1,11 @@
 import {Navigation} from '../Navigation';
+import styles from './header.module.css';
 
 export function Header() {
   return (
-    <header className="header-shell">
-      <div className="header-inner">
-        <strong className="brand-mark">Courseboard React</strong>
+    <header className={styles.header}>
+      <div className={styles.inner}>
+        <strong className={styles.brand}>Courseboard React</strong>
         <Navigation />
       </div>
     </header>
