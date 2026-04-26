@@ -2,7 +2,7 @@
   "compilerOptions": {
     "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "allowSyntheticDefaultImports": true,
     "noEmit": true
   },
